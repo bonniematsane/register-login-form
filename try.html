@@ -1,0 +1,56 @@
+<form id="registrationForm">
+    <h1>User Information</h1>
+  
+    <table>
+      <tr>
+        <th>First Name:</th>
+        <td><input type="text" id="firstname" required></td>
+        <th>Last Name:</th>
+        <td><input type="text" id="lastname" required></td>
+      </tr>
+      <tr>
+        <th>Email:</th>
+        <td><input type="email" id="email" required></td>
+        <th>Cellphone:</th>
+        <td><input type="text" id="cellphone" required></td>
+      </tr>
+    </table>
+  
+    <button type="button" onclick="addInfo()"></button>
+    <button type="button" onclick="removeInfo()">Remove</button>
+    <button type="submit">Register</button>
+  </form>
+  
+  <script>
+    // Function to add information captured
+    function addInfo() {
+      var table = document.querySelector('table');
+      var row = table.insertRow(-1);
+      var firstNameCell = row.insertCell(0);
+      var lastNameCell = row.insertCell(1);
+      var emailCell = row.insertCell(2);
+      var cellphoneCell = row.insertCell(3);
+  
+      firstNameCell.innerHTML = document.getElementById('firstname').value;
+      lastNameCell.innerHTML = document.getElementById('lastname').value;
+      emailCell.innerHTML = document.getElementById('email').value;
+      cellphoneCell.innerHTML = document.getElementById('cellphone').value;
+  
+      // Clear input fields after adding info
+      document.getElementById('firstname').value = '';
+      document.getElementById('lastname').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('cellphone').value = '';
+    }
+  
+    // Function to remove information captured
+    function removeInfo() {
+      var table = document.querySelector('table');
+      var rowCount = table.rows.length;
+  
+      if (rowCount > 2) { // Make sure there is at least one row to remove (excluding the header)
+        table.deleteRow(rowCount - 1);
+      }
+    }
+  </script>
+  

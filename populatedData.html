@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+    
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<table>
+    
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>firstname</td>
+          <td>lastname</td>
+          <td>email</td>
+          <td>cellphone</td>
+        </tr>
+        <tr>
+        
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+            <td id="firstNameCell"></td>
+            <td id="lastNameCell"></td>
+            <td id="emailCell"></td>
+            <td id="cellphoneCell"></td>
+          </tr>
+      </table>
+      
+
+<button type="button" onclick="removeInfo()">Remove</button>
+
+
+<script>
+
+function populateData() {
+    var firstNameCell = document.getElementById('firstNameCell');
+    var lastNameCell = document.getElementById('lastNameCell');
+    var emailCell = document.getElementById('emailCell');
+    var cellphoneCell = document.getElementById('cellphoneCell');
+
+    var firstName = document.getElementById('firstname').value;
+    var lastName = document.getElementById('lastname').value;
+    var email = document.getElementById('email').value;
+    var cellphone = document.getElementById('cellphone').value;
+
+    firstNameCell.innerHTML = firstName;
+    lastNameCell.innerHTML = lastName;
+    emailCell.innerHTML = email;
+    cellphoneCell.innerHTML = cellphone;
+  }
+
+  
+     
+    
+  
+    // Function to remove the last added information
+    function removeInfo() {
+      var table = document.getElementById('infoTable');
+      var rowCount = table.rows.length;
+  
+      if (rowCount > 1) { // Make sure there is at least one row to remove
+        table.deleteRow(rowCount - 1);
+      }
+      
+    localStorage.setItem('users',JSON.stringify(users)); 
+
+    }
+  </script>
+
+</body>
+</html>
