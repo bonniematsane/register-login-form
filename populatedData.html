@@ -60,15 +60,15 @@
 <script>
 
 function populateData() {
-    var firstNameCell = document.getElementById('firstNameCell');
-    var lastNameCell = document.getElementById('lastNameCell');
-    var emailCell = document.getElementById('emailCell');
-    var cellphoneCell = document.getElementById('cellphoneCell');
+    let firstNameCell = document.getElementById('firstNameCell');
+    let lastNameCell = document.getElementById('lastNameCell');
+    let emailCell = document.getElementById('emailCell');
+    let cellphoneCell = document.getElementById('cellphoneCell');
 
-    var firstName = document.getElementById('firstname').value;
-    var lastName = document.getElementById('lastname').value;
-    var email = document.getElementById('email').value;
-    var cellphone = document.getElementById('cellphone').value;
+    let firstName = document.getElementById('firstname').value;
+    let lastName = document.getElementById('lastname').value;
+    let email = document.getElementById('email').value;
+    let cellphone = document.getElementById('cellphone').value;
 
     firstNameCell.innerHTML = firstName;
     lastNameCell.innerHTML = lastName;
@@ -82,8 +82,8 @@ function populateData() {
   
     // Function to remove the last added information
     function removeInfo() {
-      var table = document.getElementById('infoTable');
-      var rowCount = table.rows.length;
+      let table = document.getElementById('infoTable');
+      let rowCount = table.rows.length;
   
       if (rowCount > 1) { // Make sure there is at least one row to remove
         table.deleteRow(rowCount - 1);
