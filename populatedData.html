@@ -25,74 +25,38 @@
 </head>
 <body>
 
-<table>
-    
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-        <tr>
-          <td>firstname</td>
-          <td>lastname</td>
-          <td>email</td>
-          <td>cellphone</td>
-        </tr>
-        <tr>
-        
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <tr>
-            <td id="firstNameCell"></td>
-            <td id="lastNameCell"></td>
-            <td id="emailCell"></td>
-            <td id="cellphoneCell"></td>
-          </tr>
-      </table>
-      
-
-<button type="button" onclick="removeInfo()">Remove</button>
-
+<table id="infoTable">
+  <tr>
+    <th>Email</th>
+    <th>Password</th>
+  </tr>
+</table>
 
 <script>
+(function() {
+  // Retrieve email and password from localStorage
+  let email = localStorage.getItem('email');
+  let password = localStorage.getItem('password');
 
-function populateData() {
-    let firstNameCell = document.getElementById('firstNameCell');
-    let lastNameCell = document.getElementById('lastNameCell');
-    let emailCell = document.getElementById('emailCell');
-    let cellphoneCell = document.getElementById('cellphoneCell');
-
-    let firstName = document.getElementById('firstname').value;
-    let lastName = document.getElementById('lastname').value;
-    let email = document.getElementById('email').value;
-    let cellphone = document.getElementById('cellphone').value;
-
-    firstNameCell.innerHTML = firstName;
-    lastNameCell.innerHTML = lastName;
-    emailCell.innerHTML = email;
-    cellphoneCell.innerHTML = cellphone;
+  // Check if email and password exist
+  if (email && password) {
+    let table = document.getElementById('infoTable');
+    let tbody = table.querySelector('tbody');
+  
+    let row = document.createElement('tr');
+  
+    let emailCell = document.createElement('td');
+    emailCell.textContent = email;
+    row.appendChild(emailCell);
+  
+    let passwordCell = document.createElement('td');
+    passwordCell.textContent = password;
+    row.appendChild(passwordCell);
+  
+    tbody.appendChild(row);
   }
-
-  
-     
-    
-  
-    // Function to remove the last added information
-    function removeInfo() {
-      let table = document.getElementById('infoTable');
-      let rowCount = table.rows.length;
-  
-      if (rowCount > 1) { // Make sure there is at least one row to remove
-        table.deleteRow(rowCount - 1);
-      }
-      
-    localStorage.setItem('users',JSON.stringify(users)); 
-
-    }
-  </script>
+})();
+</script>
 
 </body>
 </html>
